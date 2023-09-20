@@ -11,15 +11,20 @@ var indexRouter = require('./routes/index');
 
 var app = express();
 
-
-mongoose.set("strictQuery", false);
-
 const mongoURI = process.env.MONGODB_URI;
 
-main().catch((err) => console.log(err));
-async function main() {
-  await mongoose.connect(mongoURI);
-}
+// Connect to MongoDB
+mongoose.connect(mongoURI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
+// Check if the connection was successful
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+db.once('open', () => {
+  console.log('Connected to MongoDB');
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
