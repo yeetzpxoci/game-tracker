@@ -7,9 +7,9 @@ router.get('/', function(req, res, next) {
   res.send('Homepage');
 });
 
-router.get('/games', gameController.gameList);
+router.get('/games', gameController.game_list);
 
-router.get('/games/add', gameController.addGamePost);
+router.get('/games/add', gameController.add_game_post);
 
 // router.get('/games', );
 

@@ -2,8 +2,8 @@ const Game = require("../models/game");
 const asyncHandler = require('express-async-handler')
 
 exports.gameList = asyncHandler(async (req, res, next) => {
-    const gameList = await Game.find({}).exec();
-    res.send(gameList);
+    const game_list = await Game.find({}).exec();
+    res.send(game_list);
 });
 
 exports.addGamePost = asyncHandler(async (req, res, next) => {

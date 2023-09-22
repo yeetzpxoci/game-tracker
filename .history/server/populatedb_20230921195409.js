@@ -124,8 +124,7 @@ async function createGames() {
             "Ongoing",
             "2021-05-10",
             false,
-            9.5,
-            "https://image.api.playstation.com/vulcan/img/cfn/11307uYG0CXzRuA9aryByTHYrQLFz-HVQ3VVl7aAysxK15HMpqjkAIcC_R5vdfZt52hAXQNHoYhSuoSq_46_MT_tDBcLu49I.png"
+            9.5
         ),
 
         gameCreate(4,
@@ -150,8 +149,7 @@ async function createGames() {
             "Ongoing",
             "2021-03-25",
             false,
-            10,
-            "https://image.api.playstation.com/vulcan/img/cfn/11307uYG0CXzRuA9aryByTHYrQLFz-HVQ3VVl7aAysxK15HMpqjkAIcC_R5vdfZt52hAXQNHoYhSuoSq_46_MT_tDBcLu49I.png"
+            10
         ),
 
         gameCreate(6,
@@ -163,8 +161,7 @@ async function createGames() {
             "Finished",
             "2021-01-08",
             "2021-02-20",
-            8.7,
-            "https://image.api.playstation.com/vulcan/img/cfn/11307uYG0CXzRuA9aryByTHYrQLFz-HVQ3VVl7aAysxK15HMpqjkAIcC_R5vdfZt52hAXQNHoYhSuoSq_46_MT_tDBcLu49I.png"
+            8.7
         )
     ]);
 }
