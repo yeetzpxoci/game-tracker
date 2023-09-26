@@ -35,9 +35,9 @@ exports.validateGameInput = [
 exports.addGamePost = asyncHandler(async (req, res, next) => {
     console.log('Received a POST request to /games/add');
 
-    if (!(req.body.genre instanceof Array)) {
-        if (typeof req.body.genre === "undefined") req.body.genre = [];
-        else req.body.genre = new Array(req.body.genre);
+    if (!(req.body.genres instanceof Array)) {
+        if (typeof req.body.genres === "undefined") req.body.genres = [];
+        else req.body.genres = new Array(req.body.genres);
     }
 
     const newGame = new Game({
@@ -45,10 +45,10 @@ exports.addGamePost = asyncHandler(async (req, res, next) => {
         description: req.body.description,
         developer: req.body.developer,
         platform: req.body.platform,
-        genre: req.body.genre,
+        genres: req.body.genres,
         status: req.body.status,
-        dateOfStart: Date(req.body.dateOfStart),
-        dateOfFinish: Date(req.body.dateOfFinish),
+        dateOfStart: req.body.dateOfStart,
+        dateOfFinish: req.body.dateOfFinish,
         rating: req.body.rating,
         imgUrl: req.body.imgUrl
     });

@@ -7,7 +7,7 @@ const GameSchema = new Schema({
     description: {type: String, maxLength: 500},
     developer: {type: String},
     platform: {type: String},
-    genre: [{type: Schema.Types.ObjectId, ref: "Genre"}],
+    genres: [{type: Schema.Types.ObjectId, ref: "Genre"}],
     status: {type: String, required: true, enum: ['Finished', 'Ongoing', 'Dropped']},
     dateOfStart: {type: Date},
     dateOfFinish: {type: Date},
