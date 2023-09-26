@@ -8,10 +8,10 @@ router.get('/', function(req, res, next) {
   res.send('Homepage');
 });
 
-router.get('/games', gameController.game_list);
+router.get('/games', gameController.gameList);
 
-router.post('/games/add', gameController.add_game_post);
+router.post('/games/add', gameController.validateGameInput, gameController.addGamePost);
 
-router.get('/genres', genreController.genre_list);
+router.get('/genres', genreController.genreList);
 
 module.exports = router;
