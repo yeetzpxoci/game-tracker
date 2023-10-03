@@ -32,7 +32,7 @@ exports.validateGameInput = [
     }
 ]
 
-exports.addGamePost = asyncHandler(async (req, res, next) => {
+exports.addGame = asyncHandler(async (req, res, next) => {
     console.log('Received a POST request to /games/add');
 
     if (!(req.body.genres instanceof Array)) {
@@ -50,12 +50,23 @@ exports.addGamePost = asyncHandler(async (req, res, next) => {
         dateOfStart: req.body.dateOfStart,
         dateOfFinish: req.body.dateOfFinish,
         rating: req.body.rating,
-        imgUrl: req.body.imgUrl
+        imgURL: req.body.imgURL
     });
 
     try {
         await newGame.save();
         res.status(201).json({ message: 'Game created successfully' });
+    } catch (error) {
+        console.error('Error during save:', error);
+        res.status(500).json({ error: error.message });
+    }
+})
+
+exports.deleteGame = asyncHandler(async (req, res, next) => {
+    console.log(req.body.gameID);
+    try {
+        await Game.findByIdAndDelete(req.body.gameID);
+        res.status(201).json({ message: 'Game deleted successfully' });
     } catch (error) {
         console.error('Error during save:', error);
         res.status(500).json({ error: error.message });

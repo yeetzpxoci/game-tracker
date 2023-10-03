@@ -10,7 +10,9 @@ router.get('/', function(req, res, next) {
 
 router.get('/games', gameController.gameList);
 
-router.post('/games/add', gameController.validateGameInput, gameController.addGamePost);
+router.post('/games/add', gameController.validateGameInput, gameController.addGame);
+
+router.post('/games/delete', gameController.deleteGame);
 
 router.get('/genres', genreController.genreList);
 
