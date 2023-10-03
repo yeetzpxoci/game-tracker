@@ -63,7 +63,6 @@ exports.addGame = asyncHandler(async (req, res, next) => {
 })
 
 exports.deleteGame = asyncHandler(async (req, res, next) => {
-    console.log(req.body.gameID);
     try {
         await Game.findByIdAndDelete(req.body.gameID);
         res.status(201).json({ message: 'Game deleted successfully' });

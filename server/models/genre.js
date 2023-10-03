@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 
 const GenreSchema = new Schema({
     name: {type: String, required: true, maxLength: 100},
+    imgURL: { type: String }
 });
 
 GenreSchema.virtual('url').get(function () {

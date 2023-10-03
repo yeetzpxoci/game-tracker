@@ -16,4 +16,8 @@ router.post('/games/delete', gameController.deleteGame);
 
 router.get('/genres', genreController.genreList);
 
+router.post('/genres/add', genreController.addGenre);
+
+router.post('/genres/delete', genreController.deleteGenre);
+
 module.exports = router;

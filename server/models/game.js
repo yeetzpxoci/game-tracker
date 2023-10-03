@@ -12,7 +12,7 @@ const GameSchema = new Schema({
     dateOfStart: {type: Date},
     dateOfFinish: {type: Date},
     rating: {type: Number, min: 0, max:10},
-    imgUrl: {type: String} 
+    imgURL: {type: String} 
 });
 
 GameSchema.virtual('url').get(function(){
