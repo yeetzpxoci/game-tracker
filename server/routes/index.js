@@ -14,6 +14,8 @@ router.post('/games/add', gameController.validateGameInput, gameController.addGa
 
 router.post('/games/delete', gameController.deleteGame);
 
+router.post('/games/update', gameController.validateGameInput, gameController.updateGame);
+
 router.get('/genres', genreController.genreList);
 
 router.post('/genres/add', genreController.addGenre);

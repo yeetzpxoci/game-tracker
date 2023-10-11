@@ -33,8 +33,6 @@ exports.validateGameInput = [
 ]
 
 exports.addGame = asyncHandler(async (req, res, next) => {
-    console.log('Received a POST request to /games/add');
-
     if (!(req.body.genres instanceof Array)) {
         if (typeof req.body.genres === "undefined") req.body.genres = [];
         else req.body.genres = new Array(req.body.genres);
@@ -68,6 +66,35 @@ exports.deleteGame = asyncHandler(async (req, res, next) => {
         res.status(201).json({ message: 'Game deleted successfully' });
     } catch (error) {
         console.error('Error during save:', error);
+        res.status(500).json({ error: error.message });
+    }
+})
+
+exports.updateGame = asyncHandler(async (req, res, next) => {
+    if (!(req.body.genres instanceof Array)) {
+        if (typeof req.body.genres === "undefined") req.body.genres = [];
+        else req.body.genres = new Array(req.body.genres);
+    }
+
+    const newGame = new Game({
+        _id: req.body._id,
+        name: req.body.name,
+        description: req.body.description,
+        developer: req.body.developer,
+        platform: req.body.platform,
+        genres: req.body.genres,
+        status: req.body.status,
+        dateOfStart: req.body.dateOfStart,
+        dateOfFinish: req.body.dateOfFinish,
+        rating: req.body.rating,
+        imgURL: req.body.imgURL
+    });
+
+    try {
+        await Game.findByIdAndUpdate(newGame._id, newGame);
+        res.status(201).json({ message: 'Game updated successfully' });
+    } catch (error) {
+        console.error('Error during update:', error);
         res.status(500).json({ error: error.message });
     }
 })
